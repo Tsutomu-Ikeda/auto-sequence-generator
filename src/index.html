@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<!-- This document forms the dockable panel. The button is the <input> tag below. The <style> formats the button. 
+
+		The extendscript is called through the <script type="text/javascript"> tag, which then routes it to use the adobe_cep_.evalScript to interpret that Javascript into Extendscript -->
+
+<html>
+	<head>
+		<link rel="stylesheet" href="css/topcoat-desktop-dark.min.css"/>
+		<meta charset="utf-8">
+		<title>GIVE YOUR PANEL A TITLE</title>
+		<script src="./lib/CSInterface.js"></script>		
+		<script type="text/javascript">
+			
+			function runAll() {
+		        var cs = new CSInterface;
+		        var form1 = document.getElementById("form1").value;
+		        var form2 = document.getElementById("form2").value;
+		        
+		        cs.evalScript('var text1 = "' + form1 + '";var serial = "' + form2 + '";');
+		        cs.evalScript('$.runScript.genSeqsfromCsv()');
+			}
+
+			
+		</script>
+		<style>
+			body {
+				background-color: #262626;
+				color: #8a8a8a;
+				text-align: center;
+				font-size: 12px;
+				}
+			input {
+				border: solid 1px #8a8a8a;
+				display: inline-block;
+				margin: auto;
+				max-width: 100%;
+				width: 80%;
+				background: #161616;
+				color: #8a8a8a;
+				padding: 2px;
+				border-radius: 3px;
+			}
+			input:focus{
+				background: #ffffff;
+				color: #414141;
+			}
+			
+			.button {
+				width: 10%;
+    			padding: 1px 20px;
+    			background: #262626;
+				border: solid 1px #8a8a8a;
+				border-radius: 15px;
+			}
+			.button:hover {
+				color: #262626;
+				background: #8a8a8a;
+  				cursor : pointer;
+			}
+			
+
+		</style>
+	</head>
+
+	<body>
+
+		
+		<input type="text" id="form1" value="X:\\disk3\\001_社内制作\\180803_ikedaAdobeスクリプト\\newsequences.csv"><br><br>
+		<input type="number" id="form2" value="1"><br><br>
+		<a class="button" onclick="runAll()">生成</a><br>
+			  
+			     
+	</body>
+</html>
